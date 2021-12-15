@@ -1,0 +1,91 @@
+package Messi;
+import javax.swing.*;
+ import java.awt.event.*;
+public class FoodOrdering extends JFrame implements ActionListener{
+ /**
+  *
+  */
+ private static final long serialVersionUID = -6866471878608445067L;
+private static final String Color = null;
+JLabel l;
+  JCheckBox s1,s2,s3,s4,s5,s6,s7,s8;
+  JButton b;
+FoodOrdering(){
+  l=new JLabel("Food Ordering System");
+  l.setBounds(50,50,300,20);
+  s1=new JCheckBox("HotDog $12");
+  s1.setBounds(40,100,150,20);
+  s2=new JCheckBox("Burger $20");
+  s2.setBounds(250,100,150,20);
+  s3=new JCheckBox(" Longer $17");
+  s3.setBounds(40,150,150,20);
+  s4 = new JCheckBox("Coffee 5");
+  s4.setBounds(250,150,150,20);
+  s5 = new JCheckBox("CocaCola $7");
+  s5.setBounds(40,200,150,20);
+  s6 = new JCheckBox("Samsa $6");
+  s6.setBounds(250,200,150,20);
+  s7 = new JCheckBox("Sandvich $15");
+  s7.setBounds(40,250,150,20);
+  s8 = new JCheckBox("CheezBurger $16");
+  s8.setBounds(250,250,150,20);
+
+  
+  
+  
+  
+  b=new JButton("Order");
+  b.setBounds(50,300,80,30);
+  b.addActionListener(this);
+  add(l);add(s1);add(s2);add(s3);add(s4);add(s5);add(s6);add(s7);add(s8);add(b);
+  setSize(450,400);
+  setLayout(null);
+  setVisible(true);
+  setDefaultCloseOperation(EXIT_ON_CLOSE);
+  }
+  public void actionPerformed(ActionEvent e){
+  float amount=0;
+  String msg="";
+ if(s1.isSelected()){
+  amount+=12;
+  msg="HotDog: 12\n";
+  }
+  if(s2.isSelected()){
+  amount+=20;
+  msg+="Burger: 20\n";
+  }
+  if(s3.isSelected()){
+  amount+=17;
+ msg+="Longer: 17\n";
+  }
+  if(s4.isSelected()){
+   amount+=5;
+  msg+="Coffee: 5\n";
+   }
+  if(s5.isSelected()){
+   amount+=7;
+  msg+="CocaCola: 7\n";
+   }
+  if(s6.isSelected()){
+    amount+=6;
+   msg+="Samsa: 6\n";
+    }
+  if(s7.isSelected()){
+    amount+=15;
+   msg+="Sandvich: 15\n";
+    }
+  if(s8.isSelected()){
+    amount+=16;
+   msg+="CheezBurger: 16\n";
+    }
+  msg+="-----------------\n";
+  JOptionPane.showMessageDialog(this,msg+"Total: "+amount);
+  }
+  public static void main(String[] args) {
+  new FoodOrdering();
+ 
+  }
+public static String getColor() {
+ return Color;
+}
+}
